@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom matcher 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      1,
+    ],
+    Array [
+      101,
+    ],
+    Array [
+      0,
+    ],
+  ],
+}
+`;
