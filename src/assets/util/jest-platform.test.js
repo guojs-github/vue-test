@@ -59,13 +59,25 @@ test('Get variable type', () => {
 	const g = null;
 	const h = undefined;
 	
-	console.log('type of a is' + getType(a));
-	console.log('type of b is' + getType(b));
-	console.log('type of c is' + getType(c));
-	console.log('type of d is' + getType(d));
-	console.log('type of e is' + getType(e));
-	console.log('type of f is' + getType(f));
-	console.log('type of g is' + getType(g));
-	console.log('type of h is' + getType(h));
+	console.log('type of a is ' + getType(a));
+	console.log('type of b is ' + getType(b));
+	console.log('type of c is ' + getType(c));
+	console.log('type of d is ' + getType(d));
+	console.log('type of e is ' + getType(e));
+	console.log('type of f is ' + getType(f));
+	console.log('type of g is ' + getType(g));
+	console.log('type of h is ' + getType(h));
+})
+
+test('Pretty format', () => {
+	const prettyFormat = require('pretty-format');
+
+	const val = {object: {}};
+	val.circularReference = val;
+	val[Symbol('foo')] = 'foo';
+	val.map = new Map([['prop', 'value']]);
+	val.array = [-0, Infinity, NaN];
+
+	console.log(prettyFormat(val));	
 })
 
