@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message.test.js has the expected html structure 1`] = `
+<div
+  id="message-list"
+>
+  <ul>
+    <li>
+      
+		Cat
+	
+    </li>
+  </ul>
+</div>
+`;
