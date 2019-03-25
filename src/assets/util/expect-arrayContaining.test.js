@@ -18,8 +18,44 @@ describe('arrayContaining toBeCalledWith', () => {
 	});
 });
 
-describe('arrayContaining objectContaining', () => {
+describe('objectContaining', () => {
+	const mock1 = jest.fn();
+	
+	test('test arrayContaining object', () => {
+		const position = {
+			x: 1,
+			y: 1,
+			description: '一些描述',
+			velocity: 1000
+		}
+		mock1(position);
+		expect(mock1).toBeCalledWith(expect.objectContaining({
+			x: expect.any(Number),
+			y: expect.any(Number),
+			description: expect.any(String)
+		}));
+	});
 });
 
-describe('arrayContaining toMatchObject', () => {
+describe('toMatchObject', () => {
+	const houseForSale = {
+		bath: true,
+		bedrooms: 4,
+		kitchen: {
+			amenities: ['oven', 'stove', 'washer'],
+			area: 20,
+			wallColor: 'white',
+		},
+	};
+	const desiredHouse = {
+		bath: true,
+		kitchen: {
+			amenities: ['oven', 'stove', 'washer'],
+			wallColor: expect.stringMatching(/white|yellow/),
+		},
+	};
+
+	test('the house has my desired features', () => {
+		expect(houseForSale).toMatchObject(desiredHouse);
+	});
 });
