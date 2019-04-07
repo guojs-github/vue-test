@@ -56,3 +56,12 @@ test('waits 60 second & count times', () => {
 	expect(callback).toBeCalled();
 	expect(callback).toHaveBeenCalledTimes(6);
 });
+
+test('jest.setTimeout', () => {
+	jest.setTimeout(1000);
+	
+	console.log('execute after jest.setTimeout ');
+	expect(1).toBe(1);
+});
+
+

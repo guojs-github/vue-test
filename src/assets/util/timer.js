@@ -19,6 +19,7 @@ function infiniteTimerGame(callback) {
     }, 10000);
   }, 1000);
 }
+
 module.exports = {
 	timerGame,
 	infiniteTimerGame
