@@ -27,5 +27,6 @@ module.exports = {
     '!**/node_modules/**'
   ],
   testURL: 'http://localhost',
-  verbose: false
+  verbose: false,
+  collectCoverage: false
 }
