@@ -27,5 +27,5 @@ module.exports = {
     '!**/node_modules/**'
   ],
   testURL: 'http://localhost',
-  verbose: true
+  verbose: false
 }
