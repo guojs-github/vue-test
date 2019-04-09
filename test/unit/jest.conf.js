@@ -29,5 +29,7 @@ module.exports = {
 	],
 	testURL: 'http://localhost',
 	verbose: false,
-	collectCoverage: true
+	collectCoverage: true,
+	notify: true,
+	notifyMode: 'always'
 }
