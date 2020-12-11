@@ -1,0 +1,95 @@
+/*
+	layout
+*/
+@default-row-height: 50px;
+@default-button-height: 30px;
+
+.-scroll-y {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.-scroll-none {
+	overflow: hidden;
+}
+
+.-inline {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.-content {
+	margin: 10px;
+	padding: 0 10px;
+}
+
+.-title {
+	.-row();
+	padding: 0 10px;
+
+	width: calc(100% - 20px);
+	font-size: @font-size-big;
+	font-weight: bold;
+	background-color: @color-light-gray;
+}
+
+.-row {
+	display: block;
+	overflow: hidden;
+
+	width: 100%;
+	height: @default-row-height;
+	line-height: @default-row-height;
+	background-color: transparent;
+	text-align: left;	
+}
+
+.-section {
+	.-inline();
+	
+	width: 100%;
+	min-height: @default-row-height;
+	line-height: @default-row-height;
+	background-color: transparent;
+	text-align: left;
+}
+
+.-single-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.-multi-line {
+	overflow: hidden;
+	
+	height: auto;
+}
+
+.-image {
+	.-inline();
+	text-align: center;
+	
+	& > img {
+		display: inline-block;
+		vertical-align: middle;		
+	}
+}
+
+.-button {
+	padding: 0 10px;
+	margin: 0;
+	
+	width: auto;
+	height: @default-button-height;
+	line-height: @default-button-height;
+	
+	cursor: pointer;
+}
+
+.-red-button {
+	.-button();
+	color: white;
+	background-color: @color-red;
+}
+

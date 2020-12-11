@@ -1,0 +1,28 @@
+/*
+	global style functions
+*/
+
+.-opacity(@op: 1) {
+	-moz-opacity: @op; // firefox
+	-khtml-opacity: @op; // KDE的html引擎
+	opacity: @op;
+	
+	@op-ie: @op * 100;
+	filter:alpha(opacity=@op-ie);	
+}
+
+.-box-shadow-routine(@depth: 4,@opacity: 0.2) {
+    -moz-box-shadow: 0 0 ~'@{depth}px' 0 rgba(0,0,0,@opacity);
+    -webkit-box-shadow: 0 0 ~'@{depth}px' 0 rgba(0,0,0,@opacity);
+	box-shadow: 0 0 ~'@{depth}px' 0 rgba(0,0,0,@opacity);
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=@depth, Direction=135, Color='#999999')";	
+}
+
+.-text-normal-routine {
+	color: #5a5f64;
+}
+
+.-text-size-normal-routine {
+	font-size: 14px;
+}

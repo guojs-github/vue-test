@@ -1,6 +1,17 @@
 <template>
-	<div class='home'>
-		你好！我是Home
+	<div class='-content home'>
+		<div class='-title'>
+			功能清单
+		</div>
+
+		<div class='-row'>
+			<div class='-inline -ef-click -light-red -red-button test-print' @click='onTestPrint'>
+				测试打印
+			</div>
+			<div class='-inline -ef-click -light-red -red-button test-vxe-table' @click='onTestVxeTable'>
+				测试vxe-table
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -32,7 +43,25 @@ export default {
 		this.uninit();
 	},
 
-	methods: {		
+	methods: {	
+		onTestPrint() {
+			console.log('On test print');
+			
+			this.$router.push({
+				path: '/Print',
+				name: 'Print'
+			})
+		},
+		
+		onTestVxeTable() {
+			console.log('On test vxe-table');
+			
+			this.$router.push({
+				path: '/vxe-table',
+				name: 'VxeTable'
+			})
+		},
+		
 		/*************************/
 		init() {
 			console.log('Initialize.');

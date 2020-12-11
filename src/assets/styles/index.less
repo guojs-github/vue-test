@@ -1,0 +1,35 @@
+/*
+	global style
+*/
+@import './constants';
+@import './functions';
+@import './layout';
+@import './tricks';
+
+.-full-screen {
+	width: 100wh;
+	height: 100vh;
+}
+
+.-full-screen-fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+body {
+	margin: 0;
+}
+
+#app {
+	.-full-screen-fixed;
+	.-scroll-none;
+	
+	margin: 0;
+	padding: 0;
+
+	background-color: white;
+	font-size: @font-size-default;
+}
