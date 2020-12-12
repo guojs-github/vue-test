@@ -6,7 +6,7 @@
 
 		<div class='-row'>
 			<div class='-inline -ef-click -light-red -red-button print-4-in-1'>
-				四合一打印
+				一页打印四页内容？
 			</div>
 		</div>
 	</div>
