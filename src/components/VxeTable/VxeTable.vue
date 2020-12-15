@@ -1,13 +1,16 @@
 <template>
-	<div class='-content vxe-table'>
+	<div class='-content vxe-table-demo'>
 		<div class='-title'>
 			VXE-TABLE
 		</div>
 		<vxe-table
+			ref='vxe-table-demo'
 			border
 			show-header-overflow
 			show-overflow
 			highlight-hover-row
+			highlight-current-column
+			column-key
 			:height='tableHeight'
 			:data='tableData'>
 			<vxe-table-column type='seq' title='序号' width='60'/>
@@ -20,6 +23,8 @@
 </template>
 
 <script>
+import Sortable from 'sortablejs';
+
 export default {
 	name: 'VXE-TABLE', 
 	
@@ -28,8 +33,8 @@ export default {
 	
 	data() {
 		return {
-			tableHeight: 500,
-			tableData: []
+			tableData: [],
+			tableHeight: 500
 		};
 	},
 
@@ -55,6 +60,7 @@ export default {
 			console.log('Initialize.');
 			
 			this.fillData();
+			this.columnDrop();
 		},
 
 		uninit() {
@@ -75,7 +81,23 @@ export default {
 			}
 			
 			this.$set(this, 'tableData', result);
-		}
+		},
+		
+		columnDrop() { // Column drag & drop			
+			this.$nextTick(() => {
+				let table = this.$refs['vxe-table-demo'];
+				
+				this.sortable = Sortable.create(table.$el.querySelector('.body--wrapper>.vxe-table--header .vxe-header--row'), {
+					handle: '.vxe-header--column',
+					onEnd: ({newIndex, oldIndex}) => {
+						let tableColumn = table.getColumns(); // 获取表格当前列清单
+						let currRow = tableColumn.splice(oldIndex, 1)[0]; // 从原来的位置删除列
+						tableColumn.splice(newIndex, 0, currRow); // 新的位置插入列
+						table.loadColumn(tableColumn);
+					}
+				})
+			});
+		}		
 	}
 };
 </script>
