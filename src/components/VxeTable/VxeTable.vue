@@ -3,6 +3,19 @@
 		<div class='-title'>
 			VXE-TABLE
 		</div>
+		<vxe-table
+			border
+			show-header-overflow
+			show-overflow
+			highlight-hover-row
+			:height='tableHeight'
+			:data='tableData'>
+			<vxe-table-column type='seq' title='序号' width='60'/>
+			<vxe-table-column field='name' title='姓名' width='200'/>
+			<vxe-table-column field='sex' title='性别' width='100'/>
+			<vxe-table-column field='age' title='年龄' width='100'/>
+			<vxe-table-column field='address' title='联系地址'/>
+		</vxe-table>
 	</div>
 </template>
 
@@ -15,6 +28,8 @@ export default {
 	
 	data() {
 		return {
+			tableHeight: 500,
+			tableData: []
 		};
 	},
 
@@ -38,10 +53,28 @@ export default {
 		/*************************/
 		init() {
 			console.log('Initialize.');
+			
+			this.fillData();
 		},
 
 		uninit() {
 			console.log('Uninitialize.');
+		},
+		
+		fillData() { // Fill test data
+			let result = [];
+			for (let i = 0; i < 10000; i++) {
+				let row = {
+					name: '张三',
+					sex: 'MALE',
+					age: i,
+					address: '中国海南省海口市琼山区龙塘镇'
+				};
+				
+				result.push(row);
+			}
+			
+			this.$set(this, 'tableData', result);
 		}
 	}
 };
