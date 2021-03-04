@@ -5,6 +5,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// element-ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 // vxe-table
 import 'xe-utils';
 import VXETable from 'vxe-table';
@@ -13,6 +17,7 @@ import 'vxe-table/lib/index.css';
 import 'vxe-table-plugin-element/dist/style.css';
 
 Vue.config.productionTip = false
+Vue.use(ElementUI)
 
 // vxe-table
 VXETable.interceptor.add('event.clearActived', (params, event) => {

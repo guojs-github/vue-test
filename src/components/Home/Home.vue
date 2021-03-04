@@ -11,6 +11,9 @@
 			<div class='-inline -ef-click -light-red -red-button test-vxe-table' @click='onTestVxeTable'>
 				测试vxe-table
 			</div>
+			<div class='-inline -ef-click -light-red -red-button test-el-tabs' @click='onTestElTabs'>
+				测试el-tabs
+			</div>
 		</div>
 	</div>
 </template>
@@ -59,6 +62,15 @@ export default {
 			this.$router.push({
 				path: '/vxe-table',
 				name: 'VxeTable'
+			})
+		},
+		
+		onTestElTabs() {
+			console.log('On test el-tabs');
+			
+			this.$router.push({
+				path: '/el-tabs',
+				name: 'ElTabs'
 			})
 		},
 		
